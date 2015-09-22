@@ -1,0 +1,202 @@
+/* globalne */
+.main{
+    width:960px;
+    margin: 0 auto;
+}
+form h4{
+    text-align:center;
+}
+form hr{
+    width: 80%;
+    background-color:red;
+}
+.niewymagane{
+    background-color:#f7f7f7;
+}
+.info{
+    font-size:80%;
+}
+
+
+/* ----------------- imie_nazwisko --------------- */
+.imie_nazwisko{
+    width: 67%;
+    margin: 0 auto;
+    position: relative;
+    text-align:center;
+}
+.imie_nazwisko hr{
+    width:50%,
+    align:center;
+}
+/* caly input z nazwa */
+.imie_nazwisko .form-group{
+    display:inline-block;
+    display: -webkit-inline;
+    margin: 11px;
+}
+
+/* w inpucie nazwa po lewej str */
+.imie_nazwisko .input-group-addon{
+    max-width:100px !important;
+    min-width:100px !important;
+}
+/* input text */
+.imie_nazwisko input[type="text"]{
+    width: auto;
+}
+
+
+/* -------------------- firma ------------------ */
+.firma{
+    width: 65%;
+    margin: 0 auto;
+    position: relative;
+    text-align:center;
+}
+.firma .input-group-addon{
+    max-width:120px !important;
+    min-width:120px !important;
+}
+.firma textarea{
+    height:75px;
+    resize: none;
+}
+.firma .form-group{
+    margin: 0 auto;
+}
+
+
+/* --------------------- adres ------------------ */
+.adres{
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    text-align:center;
+}
+.adres hr{
+    width:50%,
+    align:center;
+}
+/* caly input z nazwa */
+.adres .form-group{
+    display:inline-block;
+    margin: 11px;
+}
+
+/* w inpucie nazwa po lewej str */
+.adres .input-group-addon{
+    max-width:100px !important;
+    min-width:100px !important;
+}
+/* input text */
+.adres input[type="text"]{
+    width: auto;
+}
+.numbers input[type="text"]{
+    width: 75px;
+}
+.email input[type="text"]{
+    width: 500px !important;
+}
+
+
+/* ----------------- oferta --------------------- */
+.oferta{
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    text-align:center;
+}
+.oferta hr{
+    width:50%,
+    align:center;
+}
+/* caly input z nazwa */
+.oferta .form-group{
+    display:inline-block;
+    margin: 11px;
+}
+
+/* w inpucie nazwa po lewej str */
+.oferta .input-group-addon{
+    max-width:150px !important;
+    min-width:150px !important;
+}
+/* input text */
+.oferta input[type="text"]{
+    width: auto;
+}
+.numbers input[type="text"]{
+    width: 75px;
+}
+#addon11{
+    cursor:pointer;
+}
+#addon11:hover{
+    background-color:#00CCFF;
+}
+
+
+
+.pomieszczenia{
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    text-align:center;
+    border:solid #ccc 1px;
+    border-radius:10px;
+    padding:5px;
+}
+.nazwa_p{
+    width:80px;
+    height:30px;
+    border:1px solid green;
+}
+.pomieszczenie{
+    border:solid #ccc 1px;
+    border-radius:10px;
+    padding:10px;
+    margin:10px;
+}
+.pomieszczenie .form-group{
+    display:inline-block;
+    margin: 11px;
+}
+.btn-dpdn{
+    background-color:#eee;
+    width:150px;
+}
+.nazwa_pomieszczenia input[type="text"]{
+    width:205px;
+}
+
+.btn_wyslij{
+    width: 100%;
+    height:60px;
+    margin-bottom: 60px;
+    position: relative;
+    text-align:center;
+    border:solid #ccc 1px;
+    border-radius:10px;
+    padding:5px;
+    background-color:#66FF99;
+}
+.btn_wyslij:hover{
+    background-color:#00CCFF;
+}
+.usun{
+    width: 81%;
+    margin: 0 auto;
+    position: relative;
+    text-align:center;
+    border:solid #ccc 1px;
+    border-radius:5px;
+    padding:5px;
+    background-color:pink;
+    margin-top:10px;
+}
+.usun:hover{
+    background-color:#00CCFF;
+}
+

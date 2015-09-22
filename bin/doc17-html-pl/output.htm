@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Output</title>
+<link type="text/css" rel="stylesheet" href="fpdf.css">
+</head>
+<body>
+<h1>Output</h1>
+<code><b>string</b> Output([<b>string</b> name, <b>string</b> dest])</code>
+<h2>Opis</h2>
+Wysyła dokument do określonego przeznaczenia: przeglądarki, pliku lub łańcuchu. W przypadku przeglądarki, może być wykorzystany plugin (jeśli jest obecny) lub opcja pobierania (Zapisz jako) może być wymuszona.
+<br>
+Metoda ta wpierw wywołuje Close() jeśli jest to niezbędne do zamknięcia dokumentu.
+<h2>Parametry</h2>
+<dl class="param">
+<dt><code>name</code></dt>
+<dd>
+Nazwa pliku. Jeśli nie jest określona, dokument będzie wysłany do przeglądarki
+(przeznaczenie <code>I</code>) z nazwą <code>doc.pdf</code>.
+</dd>
+<dt><code>dest</code></dt>
+<dd>
+Przeznaczenie, gdzie dokument ma być wysłany. Może to być jedna z następujących wartości:
+<ul>
+<li><code>I</code>: wysłanie i otwarcie w przeglądarce. Wtyczka programu pdf jest używana, jeśli jest dostępna. Nazwa dana jest przez <code>name</code> i jest używana kiedy opcja Zapisz jako jest wybrana w dokumencie PDF.</li>
+<li><code>D</code>: wysłanie do przeglądarki i wymuszenie pobierania pliku z nazwą określoną przez
+<code>name</code>.</li>
+<li><code>F</code>: zapis do lokalnego pliku z nazwą określoną w <code>name</code> (może zawierać ścieżkę).</li>
+<li><code>S</code>: zwraca nazwę dokumentu jako łańcuch. <code>name</code> jest ignorowana.</li>
+</ul>
+</dd>
+</dl>
+<h2>Zobacz także</h2>
+<a href="close.htm">Close()</a>.
+<hr style="margin-top:1.5em">
+<div style="text-align:center"><a href="index.htm">Index</a></div>
+</body>
+</html>

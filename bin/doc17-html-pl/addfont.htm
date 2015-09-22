@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>AddFont</title>
+<link type="text/css" rel="stylesheet" href="fpdf.css">
+</head>
+<body>
+<h1>AddFont</h1>
+<code>AddFont(<b>string</b> family [, <b>string</b> style [, <b>string</b> file]])</code>
+<h2>Opis</h2>
+Importuje czcionkę TrueType, OpenType lub Type1 i czyni ją dostępną. Jest to niezbędne do generowania pliku definicji czcionki wpierw używając właściwości makefont.php.
+<br>
+Plik definicji (i plik z czcionką kiedy jest osadzona) musi być obecny w katalogu z czcionką. Jeśli go to nie ma, generowany jest błąd: "Could not include font definition file".
+<h2>Parametry</h2>
+<dl class="param">
+<dt><code>family</code></dt>
+<dd>
+Rodzina czcionek. Nazwa może być wybrana dowolnie. Jeśli to jest standardowa nazwa czcionki, to będzie zastępować odpowiednie czcionki.
+</dd>
+<dt><code>style</code></dt>
+<dd>
+Styk czcionki. Możliwe wartości to (rozróżnia duże i małe litery):
+<ul>
+<li>puste: normalna czcionka</li>
+<li><code>B</code>: pogrubiona</li>
+<li><code>I</code>: pochylona</li>
+<li><code>BI</code> lub <code>IB</code>: pogrubiona i pochylona</li>
+</ul>
+Wartością domyślną jest normalna czcionka.
+</dd>
+<dt><code>file</code></dt>
+<dd>
+Plik definicji czcionki.
+<br>
+Domyślnie, nazwa jest tworzona z rodziny czcionki i stylu, małymi literami bez spacji.
+</dd>
+</dl>
+<h2>Przykład</h2>
+<div class="doc-source">
+<pre><code>$pdf-&gt;AddFont('Comic','I');</code></pre>
+</div>
+jest równoznaczne z:
+<div class="doc-source">
+<pre><code>$pdf-&gt;AddFont('Comic','I','comici.php');</code></pre>
+</div>
+<h2>Zobacz także</h2>
+<a href="setfont.htm">SetFont()</a>.
+<hr style="margin-top:1.5em">
+<div style="text-align:center"><a href="index.htm">Index</a></div>
+</body>
+</html>

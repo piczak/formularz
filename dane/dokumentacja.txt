@@ -1,0 +1,61 @@
+---------------------------------------------------------------------------------------
+function tabelka()
+
+    nie przyjmuje zadnych argumentow z zewnatrz
+    zawiera i zwraca 
+        pozycje x kolumn tabeli
+        szerokosc kolumn tabeli
+        
+        
+        
+        
+        
+---------------------------------------------------------------------------------------
+function naglowek($pdf, $poz_Y_naglowka)
+    
+    tworzy tabelke naglowka tabelki
+    uzywa funkcji tabelka
+    
+    dane wprowadzane:
+        $pdf - zmeinna z aplikacji tcpdf
+        $poz_Y_naglowka - pozycja Y od ktorej ma zaczynsc sie tabelka naglowka
+        
+    dane zwracane:
+        tabelka naglowka
+        tablica zawierajaca pozycje Y konca tabelki naglowka
+        
+        
+---------------------------------------------------------------------------------------
+pusty_formularz($pdf, $segment_Y_start)
+
+    tworzy 1 rzad tabelki segmentu gdy dane nie zostana 
+    uzywa funkcji tabelka
+    
+    dane wprowadzane
+        $pdf - zmeinna z aplikacji tcpdf
+        $segment_Y_start - dane zwrocone przez funkcje naglowek tj. pozycja Y konca naglowka
+        
+    dane zwracane
+        tabelka z komorkami z tekstem "brak danych"
+
+        
+---------------------------------------------------------------------------------------
+function segment($pdf, $segment_Y_start, $dane)
+
+    tworzy tabelke segmentu
+        wyswietla w komorkach przetworzone informacje dostarczone przez uzytkownika
+    
+    dane wprowadzane
+        $pdf - zmeinna z aplikacji tcpdf
+        $segment_Y_start - dane zwrocone przez funkcje naglowek tj. pozycja Y konca naglowka
+            lub segment przetwarzany wczesniej
+        $dane - tablica zawierajaca informacje wprowadzone przez uzytkownika
+            dane dla jednego pomieszczenia
+            
+    dane zwracane
+        $segment_Y_dolna_wartosc - tablica zawierajaca dolna wartosc Y przetwarzanego segmentu
+        
+        
+
+
+
