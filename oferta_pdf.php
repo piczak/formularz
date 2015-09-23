@@ -91,7 +91,7 @@ $pdf->setPrintHeader(false);
     $email = $_POST['email'];
     
     //objekt
-    $objekt = $_POST['objekt'];
+    $obiekt = $_POST['obiekt'];
 
     // styl lini
     $style = array('width' => 0.2, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0));
@@ -222,7 +222,7 @@ $pdf->setPrintHeader(false);
     $pdf->SetFont('dejavusans','B',10);
     $pdf->SetY(102);
     $pdf->SetX(20);    
-    $pdf->Cell(70,5,'Dotyczy: Wyposażenia objektu('.$objekt.') w panele grzewcze.');
+    $pdf->Cell(70,5,'Dotyczy: Wyposażenia objektu('.$obiekt.') w panele grzewcze.');
 
     $pdf->Line(21, 107, 188, 107, $style);
     
