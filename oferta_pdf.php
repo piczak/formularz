@@ -294,6 +294,7 @@ $pdf->setPrintHeader(false);
             $licznik = $segment['licznik'];
             $cena_pradu = $segment['łączna_cena_pradu'];
             $cena_paneli = $segment['łączna_cena_paneli'];
+            stopka($pdf, $telemarketer_tel);
             
         } else {
 
@@ -321,15 +322,8 @@ $pdf->setPrintHeader(false);
     if($liczba_pomieszczen == 0){
         pusty_formularz($pdf, $segment_Y_start);
     }
-    
-    
-    
-    // --------------------------- STOPKA -------------------------------
-    
-    stopka($pdf, $telemarketer_tel);
-    
-    
-    
+
+
     // ---------------------------- NAZWA PLIKU ---------------------------
     
     $pdf->Output($klient.'_oferta_'.$data.'.pdf', 'I');
