@@ -118,11 +118,11 @@ require_once('index.php');
                     
                     <div class="oferta">
                     
-                        <!-- OBJEKT -->
+                        <!-- OBIEKT -->
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon" id="addon10">Objekt</span>
-                                <input type="text" class="form-control" id="input_objekt" data-add="addon10" name="objekt" aria-describedby="addon10"> 
+                                <span class="input-group-addon" id="addon10">Obiekt</span>
+                                <input type="text" class="form-control" id="input_obiekt" data-add="addon10" name="obiekt" aria-describedby="addon10"> 
                             </div>
                         </div>
                         
