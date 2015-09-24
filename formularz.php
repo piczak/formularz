@@ -1,27 +1,48 @@
 <?php
 require_once('index.php');
-    if(file_exists('../telemarketer.txt')){
-        $telemarketer_dane = file('../telemarketer.txt');
-        $telemarketer = $telemarketer_dane[0];
-        $telemarketer_tel = $telemarketer_dane[1];
-    } else {
-        $telemarketer = 'brak pliku telemarketer.txt';
-        $telemarketer_tel = 'brak pliku telemarketer.txt ';
-    }
 ?>
 
         <div class="container">
         
             <div class="main">
-                
-                <p style="margin-top:20px;">Telemarketer: <? echo $telemarketer ?>( <? echo $telemarketer_tel ?>)</p>
-                <h3>DANE KLIENTA</h3>
-                <hr>
                
                 <form action="oferta_pdf.php" method="POST">
-
+                    
                     <fieldset>
-                    <h4>Imię i Nazwisko</h4>
+                    <h3>TELEMARKETER</h3>
+                    <div class="telemarketer">
+                    
+                        <!-- TELEMARKETER IMIE -->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="addon91">Imię</span>
+                                <input type="text" class="form-control" id="input_telemarketer_imie" data-add="addon91" name="telemarketer_imie" aria-describedby="addon91">
+                            </div>
+                        </div>
+                        
+                        <!-- TELEMARKETER NAZWISKO -->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="addon92">Nazwisko</span>
+                                <input type="text" class="form-control" id="input_telemarketer_nazwisko" data-add="addon92" name="telemarketer_nazwisko" aria-describedby="addon92">
+                            </div>
+                        </div>
+                        
+                        <!-- TELEMARKETER TELEFION -->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="addon93">Telefon</span>
+                                <input type="text" class="form-control" id="input_telemarketer_telefon" data-add="addon93" name="telemarketer_telefon" aria-describedby="addon93">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <hr>
+                    
+                    <h3>DANE KLIENTA</h3>
+                    
+                    <h4>Imię i Nazwisko Klienta</h4>
                     
                     <div class="imie_nazwisko">
                     

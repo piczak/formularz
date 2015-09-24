@@ -18,6 +18,38 @@ form hr{
 }
 
 
+
+/* ----------------- telemarketer ---------------- */
+.telemarketer{
+    width: 87%;
+    margin: 0 auto;
+    position: relative;
+    text-align:center;
+}
+.telemarketer hr{
+    width:50%,
+    align:center;
+}
+/* caly input z nazwa */
+.telemarketer .form-group{
+    display:inline-block;
+    display: -webkit-inline;
+    margin: 11px;
+}
+
+/* w inpucie nazwa po lewej str */
+.telemarketer .input-group-addon{
+    max-width:100px !important;
+    min-width:100px !important;
+}
+/* input text */
+.telemarketer input[type="text"]{
+    width: 120px;
+}
+
+
+
+
 /* ----------------- imie_nazwisko --------------- */
 .imie_nazwisko{
     width: 67%;

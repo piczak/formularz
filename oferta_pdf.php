@@ -32,14 +32,10 @@ $pdf->setPrintHeader(false);
     $siedziba = 'EKOPANEL ul. Elizy Orzeszkowej 2 41-103 '.$miejsce;
 
     
-    if(file_exists('../telemarketer.txt')){
-        $telemarketer_dane = file('../telemarketer.txt');
-        $telemarketer = $telemarketer_dane[0];
-        $telemarketer_tel = $telemarketer_dane[1];
-    } else {
-        $telemarketer = 'brak pliku telemarketer.txt';
-        $telemarketer_tel = 'brak pliku telemarketer.txt ';
-    }
+    $telemarketer = ucfirst(strtolower($_POST['telemarketer_imie'])).' '.ucfirst(strtolower($_POST['telemarketer_nazwisko'])).' ('.$_POST['telemarketer_telefon'].')';
+    $telemarketer_tel = $_POST['telemarketer_telefon'];
+    
+    
     
     $ceny_paneli = file('dane/ceny.txt');
     $cena_hq700 = $ceny_paneli[0];
@@ -217,6 +213,10 @@ $pdf->setPrintHeader(false);
     $pdf->SetY(90);
     $pdf->SetX(20);    
     $pdf->MultiCell(70,5,$telemarketer."\n",'C');
+    
+    $pdf->SetY(94);
+    $pdf->SetX(20);    
+    $pdf->MultiCell(70,5,"biuro@ekopanel.com.pl\n",'C');
 
     // temat zgloszenia
     $pdf->SetFont('dejavusans','B',10);
@@ -322,6 +322,10 @@ $pdf->setPrintHeader(false);
     if($liczba_pomieszczen == 0){
         pusty_formularz($pdf, $segment_Y_start);
     }
+    
+    
+    // ----------------------------- STOPKA -------------------------------
+    stopka($pdf, $telemarketer_tel);
 
 
     // ---------------------------- NAZWA PLIKU ---------------------------

@@ -30,7 +30,7 @@ $(document).ready( function(){
     
     
     //usuwa wszystkie znaki poza cyframi z pol #input_kod i #input_liczba_pomieszczen
-    $(document).on('keyup', '#input_kod, #input_liczba_pomieszczen, .izolacja', function () {    
+    $(document).on('keyup', '#input_kod, #input_liczba_pomieszczen, #input_telemarketer_telefon, .izolacja', function () {    
         var th = $(this);
         th.val(th.val().replace(/[^0-9]/g, function(){ return ''; }));
     });
