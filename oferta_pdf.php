@@ -38,9 +38,9 @@ $pdf->setPrintHeader(false);
     
     
     $ceny_paneli = file('dane/ceny.txt');
-    $cena_hq700 = $ceny_paneli[0];
-    $cena_hq800 = $ceny_paneli[1];
-    $cena_hq1000 = $ceny_paneli[2];
+    $cena_hq700 = intval($ceny_paneli[0]);
+    $cena_hq800 = intval($ceny_paneli[1]);
+    $cena_hq1000 = intval($ceny_paneli[2]);
     
     $formularz_dane = file('dane/formularz_dane.txt');
     
