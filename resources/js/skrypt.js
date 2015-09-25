@@ -35,6 +35,13 @@ $(document).ready( function(){
         th.val(th.val().replace(/[^0-9]/g, function(){ return ''; }));
     });
     
+    //usuwa wszystkie znaki poza cyframi z pol #input_kod i #input_liczba_pomieszczen
+    $(document).on('keyup', '#input_telemarketer_imie, #input_telemarketer_nazwisko, #input_imie, #input_nazwisko', function () {    
+        var th = $(this);
+        th.val(th.val().replace(/[^a-zA-Z]/g, function(){ return ''; }));
+    });
+
+    
     
     //usuwa wszystkie znaki poza cyframi, kropką i przecinkiem  z pol #input_kod i #input_liczba_pomieszczen
     $(document).on('keyup', '.powierzchnia, .wysokosc, .stawka', function () {    

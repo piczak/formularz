@@ -50,7 +50,7 @@ require_once('index.php');
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon" id="addon1">Imię</span>
-                                <input type="text" class="form-control" id="input_name" data-add="addon1" name="imie" aria-describedby="addon1">
+                                <input type="text" class="form-control" id="input_imie" data-add="addon1" name="imie" aria-describedby="addon1">
                             </div>
                         </div>
                         
