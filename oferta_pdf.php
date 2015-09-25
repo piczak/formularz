@@ -167,7 +167,7 @@ $pdf->setPrintHeader(false);
         $pdf->SetFont('dejavusans','',10);
         $pdf->SetY(45);
         $pdf->SetX(120);
-        $lines = $pdf->MultiCell(55, 5, $firma."\n");
+        $lines = $pdf->MultiCell(55, 5, $firma."\n", 0, 'L', FALSE);
         
         $eol_firma = ($lines-1)*5;
         
