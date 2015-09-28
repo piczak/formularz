@@ -38,7 +38,7 @@ $(document).ready( function(){
     //usuwa wszystkie znaki poza cyframi z pol #input_kod i #input_liczba_pomieszczen
     $(document).on('keyup', '#input_telemarketer_imie, #input_telemarketer_nazwisko, #input_imie, #input_nazwisko', function () {    
         var th = $(this);
-        th.val(th.val().replace(/[^a-zA-Z]/g, function(){ return ''; }));
+        th.val(th.val().replace(/[^a-zA-ZąĄćĆęĘłŁńŃóÓśŚźŹżŻ]/g, function(){ return ''; }));
     });
 
     
