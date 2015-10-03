@@ -51,8 +51,11 @@ $pdf->setPrintHeader(false);
     // imie naswisko
     $imie = ucfirst(strtolower($_POST['imie']));
     $nazwisko = ucfirst(strtolower($_POST['nazwisko']));
-
+    
     $klient = $imie.' '.$nazwisko;
+    
+    //zmienna bez polskich znakow uzyta w nazwie pliku podczas zapisu pdf
+    $klientNpl = bezPl($klient);
     
     $firma = '';
     //firma
@@ -330,7 +333,7 @@ $pdf->setPrintHeader(false);
 
     // ---------------------------- NAZWA PLIKU ---------------------------
     
-    $pdf->Output($klient.'_oferta_'.$data.'.pdf', 'I');
+    $pdf->Output($klientNpl.'_oferta_'.$data.'.pdf', 'I');
 
     
     
@@ -930,6 +933,11 @@ $pdf->setPrintHeader(false);
         
     }
     
+    
+    
+    // ---------------------- FUNKCJA KALKULATORA --------------------
+    // oblicza dzienny koszt energii w oparciu o dane dostarczone przez klienta
+    
     function kalkulator($stawka, $powierzchnia, $izolacja, $temp_zewnetrzna){
     
         $temp_ustawiona = 21;
@@ -950,17 +958,32 @@ $pdf->setPrintHeader(false);
         $koszt_dzienny = (($wynik)/1000)*$stawka;
         
         return $koszt_dzienny;
-    
     }
     
     
     
-    // ---------------------- FUNKCJA MIESIECY --------------------
-    // zapisuje dane do pliku 
+    // ---------------------- FUNKCJA BEZ POLSKICH ZNAKOW --------------------
+    // usuwa polskie znaki ze zmiennej wykorzystanej w nazwie plik podczas zapisu pdf
     
-//         function miesiace ($dane){
-//         
-//             
-//             
-//         }
+    function bezPl($klient){
+        $pl = array('ą','ć','ę','ł','ń','ó','ś','ź','ż','Ą','Ć','Ę','Ł','Ń','Ó','Ś','Ź','Ż');
+        $npl = array('a','c','e','l','n','o','s','z','z','A','C','E','L','N','O','S','Z','Z');
+        
+        $pl_litery = null;
+        foreach($pl as $value){
+            $ilosc = substr_count($klient, $value);
+            $pl_litery = $pl_litery + $ilosc;
+        }
+        
+        if($pl_litery != null){
+            for($i = 0; $i<$pl_litery; $i++){
+                $count = 0;
+                foreach($pl as $value){
+                    $klient = str_replace($value,$npl[$count],$klient);
+                    $count++;
+                }
+            }
+        }
+        return $klient;
+    }
 ?>
