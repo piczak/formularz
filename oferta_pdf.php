@@ -35,7 +35,7 @@ $pdf->setPrintHeader(false);
     $telemarketer = ucfirst(strtolower($_POST['telemarketer_imie'])).' '.ucfirst(strtolower($_POST['telemarketer_nazwisko'])).' ('.$_POST['telemarketer_telefon'].')';
     $telemarketer_tel = $_POST['telemarketer_telefon'];
     
-    
+    $przelicznik = $_POST['dogrzanie'];
     
     $ceny_paneli = file('dane/ceny.txt');
     $cena_hq700 = intval($ceny_paneli[0]);
@@ -98,7 +98,7 @@ $pdf->setPrintHeader(false);
     // =========================== NAGLOWEK ========================
 
     // logo
-    $pdf->Image('resources/pic/eko.jpg',70,5,70);
+    $pdf->Image('resources/pic/eko.jpg',20,10,50);
 
     //$cena_suma ='Łączna cena ';
     $cenyBN = array();
@@ -292,7 +292,7 @@ $pdf->setPrintHeader(false);
         // tworzy nowa str
         if( $segment_Y_start < 219 ){
             
-            $segment = segment($pdf, $segment_Y_start, $licznik, $dane, $liczba_pomieszczen, $cena_pradu, $cena_paneli, $cenyBN, $temperatura_zewnetrzna, $tekst_podsumowanie);
+            $segment = segment($pdf, $segment_Y_start, $licznik, $dane, $liczba_pomieszczen, $cena_pradu, $cena_paneli, $cenyBN, $temperatura_zewnetrzna, $tekst_podsumowanie, $przelicznik);
             $segment_Y_start = $segment['kolejny_segment_Y'];
             $licznik = $segment['licznik'];
             $cena_pradu = $segment['łączna_cena_pradu'];
@@ -308,7 +308,7 @@ $pdf->setPrintHeader(false);
             $naglowek = naglowek($pdf, 25);
             $segment_Y_start = $naglowek['segment_poczatek'];
             
-            $segment = segment($pdf, $segment_Y_start, $licznik, $dane, $liczba_pomieszczen, $cena_pradu, $cena_paneli, $cenyBN, $temperatura_zewnetrzna, $tekst_podsumowanie);
+            $segment = segment($pdf, $segment_Y_start, $licznik, $dane, $liczba_pomieszczen, $cena_pradu, $cena_paneli, $cenyBN, $temperatura_zewnetrzna, $tekst_podsumowanie, $przelicznik);
             $segment_Y_start = $segment['kolejny_segment_Y'];
             $licznik = $segment['licznik'];
             $cena_pradu = $segment['łączna_cena_pradu'];
@@ -691,7 +691,7 @@ $pdf->setPrintHeader(false);
     // ---------------------- FUNKCJA SEGMENTU ------------------------
     // przetwarza i wyswietla w postaci tabelki, dane wprowadzone przez uzytkownika
     
-    function segment($pdf, $segment_Y_start, $licznik, $dane, $liczba_pomieszczen, $cena_pradu, $cena_paneli, $cenyBN, $temperatura_zewnetrzna, $tekst_podsumowanie){
+    function segment($pdf, $segment_Y_start, $licznik, $dane, $liczba_pomieszczen, $cena_pradu, $cena_paneli, $cenyBN, $temperatura_zewnetrzna, $tekst_podsumowanie, $przelicznik){
         
         $tabelka = tabelka();
         
@@ -725,19 +725,20 @@ $pdf->setPrintHeader(false);
         
         // oblliczenia
         
-        $kwh = $powierzchnia * 100;
+        $kwh = $powierzchnia * $przelicznik;
         
         
         //$kubatura = $powierzchnia*$wysokosc;
 
         
-        $koszt_mc = kalkulator($stawka, $powierzchnia, $izolacja, $temperatura_zewnetrzna);
+        $koszt_dzienny = kalkulator($stawka, $powierzchnia, $izolacja, $temperatura_zewnetrzna);
         
         
         $pdf->SetFillColor(255, 255, 255);
 
+        $koszt_dzienny = $koszt_dzienny*($przelicznik/100);
         
-        $cena_pradu = $cena_pradu + $koszt_mc;
+        $cena_pradu = $cena_pradu + $koszt_dzienny;
 
         
         //tabelka segmentu
@@ -770,7 +771,7 @@ $pdf->setPrintHeader(false);
         $wartosci = array(
             'pomieszczenie' => $pomieszczenie,
             'powierzchnia' => round($powierzchnia, 2).' m2',
-            'koszt_dzienny' => round($koszt_mc, 2).' zł',
+            'koszt_dzienny' => round($koszt_dzienny, 2).' zł',
             'model_panelu' => $modele,
             'cena_modelu' => $ceny,
             'cena_paneli' => round($cena_suma, 2).' zł'
@@ -786,14 +787,14 @@ $pdf->setPrintHeader(false);
         }
         
         foreach($tabelka_segmentu1 as $nazwa => $wartosci ){
-        
+            $pdf->SetFont('dejavusans','',8);
             $pdf->SetY($wartosci['pozycja_y']);
             $pdf->SetX($wartosci['pozycja_x']);
             if(is_array($wartosci['dane'])){
             
                 $i = 0;
                 foreach($wartosci['dane'] as $key => $val){
-                    
+                    $pdf->SetFont('dejavusans','',8);
                     $pdf->SetY($wartosci['pozycja_y'] + ($i * 5));
                     $pdf->SetX($wartosci['pozycja_x']);
                     if($nazwa == 'model_panelu'){

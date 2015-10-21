@@ -155,6 +155,13 @@ require_once('index.php');
                             </div>
                             <div class="info"><p>*1 dla całej powierzchni</p></div>
                         </div>
+                        <div class="form-group">
+                            <div class="input-group numbers">
+                                <span class="input-group-addon" id="addon12">ogrzanie/Dogrzanie</span>
+                                <input type="text" class="form-control" id="input_dogrzanie" value="100" name="dogrzanie" aria-describedby="addon12" maxlength="2"> 
+                            </div>
+                            <div class="info"><p>*100 dla ogrzania, mniej dla dogrzania</p></div>
+                        </div>
                     </div>
 
                     
